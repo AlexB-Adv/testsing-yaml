@@ -14,12 +14,12 @@ jobs:
         uses: 1466587594/get-current-time@v2
         id: current-time
         
-      - name: test format() over multiline
-        env:
-          YEAR: ${{ steps.current-time.outputs.year }}
-          MONTH: ${{ steps.current-time.outputs.month }}
-          DAY: ${{ steps.current-time.outputs.day }}
-          RN: ${{ github.run_number }}
-          VERSION: ${{ '${{env:YEAR}}.${{env:MONTH}}.${{env:DAY}}.${{env:RN}}' }}
-        run: |
-          echo  ${env:VERSION}
+      - name: Set Version env var
+        id: set-version
+        run: echo 'version=${{ steps.current-time.outputs.year }}.
+          ${{ steps.current-time.outputs.month }}.
+          ${{ steps.current-time.outputs.day }}.
+          ${{ github.run_number }}' >> $GITHUB_ENV
+        
+      - name: Use Version env ver
+        run: echo  ${{ env.version }}
