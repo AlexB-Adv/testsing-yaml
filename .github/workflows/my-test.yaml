@@ -16,9 +16,10 @@ jobs:
         
       - name: test format() over multiline
         env:
-          VERSION: ${{ steps.current-time.outputs.year}}.\
-            ${{ steps.current-time.outputs.month }}.\
-            ${{ steps.current-time.outputs.day }}.\
-            ${{ env.GITHUB_RUN_NUMBER }}
+          YEAR: ${{ steps.current-time.outputs.year}}
+          MONTH: ${{ steps.current-time.outputs.month }}
+          DAY: ${{ steps.current-time.outputs.day }}
+          RN: $GITHUB_RUN_NUMBER
+          VERSION: format("{0}.{1}.{2}.{3}, $YEAR, $MONTH, $DAY, $RN)
         run: |
           echo  ${env:VERSION}
