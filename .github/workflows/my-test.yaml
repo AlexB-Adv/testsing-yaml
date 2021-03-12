@@ -21,7 +21,12 @@ jobs:
           ${{ steps.current-time.outputs.month }}.\
           ${{ steps.current-time.outputs.day }}.\
           ${{ github.run_number }}"
-        run: echo "setting version environment variable..."
+        run: |
+          echo "setting version environment variable..."
+          echo "::set-output name=current::$version"
         
       - name: Use Version env ver
-        run: echo  ${{ env.version }}
+        run: |
+          echo ${{ steps.set-version.current }}
+          echo  '${{ env.version }}'
+          
