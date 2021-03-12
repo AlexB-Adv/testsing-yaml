@@ -20,6 +20,6 @@ jobs:
           MONTH: ${{ steps.current-time.outputs.month }}
           DAY: ${{ steps.current-time.outputs.day }}
           RN: ${{ github.run_number }}
-          VERSION: ${{ format('{0}.{1}.{2}.{3}', ${{env:YEAR}}, $MONTH, $DAY, $RN) }}
+          VERSION: ${{ format('{0}.{1}.{2}.{3}', ${{env.YEAR}}, $MONTH, $DAY, $RN) }}
         run: |
           echo  ${env:VERSION}
