@@ -19,6 +19,6 @@ jobs:
           VERSION: ${{ steps.current-time.outputs.year}}.\
             ${{ steps.current-time.outputs.month }}.\
             ${{ steps.current-time.outputs.day }}.\
-            $GITHUB_RUN_NUMBER
+            ${{ env.GITHUB_RUN_NUMBER }}
         run: |
           echo  ${env:VERSION}
