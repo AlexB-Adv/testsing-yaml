@@ -16,10 +16,10 @@ jobs:
         
       - name: Set Version env var
         id: set-version
-        run: echo 'version=${{ steps.current-time.outputs.year }}.
-          ${{ steps.current-time.outputs.month }}.
-          ${{ steps.current-time.outputs.day }}.
-          ${{ github.run_number }}' >> $GITHUB_ENV
+        run: echo "version=${{ steps.current-time.outputs.year }}.\
+          ${{ steps.current-time.outputs.month }}.\
+          ${{ steps.current-time.outputs.day }}.\
+          ${{ github.run_number }}" >> $GITHUB_ENV
         
       - name: Use Version env ver
         run: echo  ${{ env.version }}
