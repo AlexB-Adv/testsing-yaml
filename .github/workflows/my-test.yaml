@@ -22,4 +22,6 @@ jobs:
             ${{ steps.current-time.outputs.month }},
             ${{ steps.current-time.outputs.day }},
             $GITHUB_RUN_NUMBER)
-        run: echo $VERSION
+        run: |
+          echo $VERSION
+          echo ${env:VERSION}
